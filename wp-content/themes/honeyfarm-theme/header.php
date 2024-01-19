@@ -34,16 +34,16 @@
                 </div>
                 <!-- End Header Navigation -->
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="navbar-menu">
-                    <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                        <li class="nav-item <?php echo is_front_page() ? 'active' : ''; ?>"><a class="nav-link" href="<?php echo esc_url(home_url('/')); ?>">Начало</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?php echo esc_url( home_url( '/about' ) ); ?>">За нас</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?php echo esc_url( home_url( '/shop' ) ); ?>">Магазин</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?php echo esc_url( home_url( '/gallery' ) ); ?>">Галерия</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">Контакти</a></li>
-                    </ul>
-                </div>
+                <!-- WordPress navigation menu -->
+                <?php
+                    wp_nav_menu( array(
+                        'menu'           => 'primary-menu',
+                        'menu_class'     => 'nav navbar-nav ml-auto',
+                        'theme_location' => 'primary_menu',                        
+                        'container_class'=> 'collapse navbar-collapse',
+                        'container_id'   => 'navbar-menu',
+                    ));
+                ?>                  
             </div>
 
             <!-- Start Side Menu -->

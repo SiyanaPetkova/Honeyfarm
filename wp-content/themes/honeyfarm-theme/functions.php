@@ -36,7 +36,19 @@
         wp_enqueue_style( 'responsive', get_template_directory_uri() . '/css/responsive.css', false, '1.0.0' );       
     }
 
-    add_action( 'wp_enqueue_scripts', 'honeyshop_assets' );   
+    add_action( 'wp_enqueue_scripts', 'honeyshop_assets' );  
+    
+    /**
+     * Register navigation menus
+     */
+    function honeyfarm_register_nav_menus() {
+        register_nav_menus(
+            array(
+                'primary_menu'      => __( 'Primary Menu', 'honeyfarm-theme' )               
+            )
+        );
+    }
+    add_action( 'after_setup_theme', 'honeyfarm_register_nav_menus' );
     
     /**
      * This function add customize site identity WP Dashboard to change dynamicly address, phone, email and working days.

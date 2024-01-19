@@ -1,0 +1,14 @@
+.slider-gallery {
+    width: 100%;
+    max-width: 600px; /* Adjust as needed */
+    margin: 0 auto;
+ }
+ 
+ .slide {
+    display: none;
+ }
+ 
+ .slide img {
+    width: 100%;
+    height: auto;
+ }
