@@ -6,34 +6,55 @@
      * This function get all paths to the css and js files.
      * 
      */
-    function honeyshop_assets( $hook ){        
+    function honeyshop_assets( $hook ) {
         $args = array(
             'in-footer' => true,
-            'Strategy' => 'defer'
-        );  
+            'Strategy'   => 'defer'
+        );
 
-        wp_enqueue_script( 'jquery' );   
+        // Function to get file modification time as the version
+        function get_file_version( $file_path ) {
+            return filemtime( $file_path );
+        }
 
-        wp_enqueue_script( 'popper.min', get_template_directory_uri() . '/js/popper.min.js', array(), '1.0.0', $args );
-        wp_enqueue_script( 'bootstrap.min', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '1.0.0', $args );
+        wp_enqueue_script( 'jquery' );
+
+        $js_files = array(
+            'popper.min',
+            'bootstrap.min',
+            'jquery.superslides.min',
+            'jquery-ui.min',
+            'bootstrap-select',
+            'inewsticker',
+            'bootsnav',
+            'images-loded.min',
+            'isotope.min',
+            'owl.carousel.min',
+            'baguetteBox.min',
+            'form-validator.min',
+            'custom'
+        );
+
+        foreach ( $js_files as $js_file ) {
+            $file_path = get_template_directory() . '/js/' . $js_file . '.js';
+            $version   = get_file_version( $file_path );
+
+            wp_enqueue_script( $js_file, get_template_directory_uri() . '/js/' . $js_file . '.js', array(), $version, $args );
+        }
         
-        wp_enqueue_script( 'jquery.superslides.min', get_template_directory_uri() . '/js/jquery.superslides.min.js', array(), '1.0.0', $args );
-        wp_enqueue_script( 'jquery-ui.min', get_template_directory_uri() . '/js/jquery-ui.js', array(), '1.0.0', $args );
+        $css_files = array(
+            'style',
+            'bootstrap.min',
+            'custom',
+            'responsive'
+        );
 
-        wp_enqueue_script( 'bootstrap-select', get_template_directory_uri() . '/js/bootstrap-select.js', array(), '1.0.0', $args );
-        wp_enqueue_script( 'inewsticker', get_template_directory_uri() . '/js/inewsticker.js', array(), '1.0.0', $args );
-        wp_enqueue_script( 'bootsnav', get_template_directory_uri() . '/js/bootsnav.js', array(), '1.0.0', $args );
-        wp_enqueue_script( 'images-loded.min', get_template_directory_uri() . '/js/images-loded.min.js', array(), '1.0.0', $args );
-        wp_enqueue_script( 'isotope.min', get_template_directory_uri() . '/js/isotope.min.js', array(), '1.0.0', $args );
-        wp_enqueue_script( 'owl.carousel.min', get_template_directory_uri() . '/js/owl.carousel.min.js', array(), '1.0.0', $args );
-        wp_enqueue_script( 'baguetteBox.min', get_template_directory_uri() . '/js/baguetteBox.min.js', array(), '1.0.0', $args );
-        wp_enqueue_script( 'form-validator.min', get_template_directory_uri() . '/js/form-validator.min.js', array(), '1.0.0', $args );
-        wp_enqueue_script( 'custom', get_template_directory_uri() . '/js/custom.js', array(), '1.0.1', $args );
-       
-        wp_enqueue_style( 'style', get_template_directory_uri() . '/css/style.css', false, '1.0.0' );
-        wp_enqueue_style( 'bootstrap.min', get_template_directory_uri() . '/css/bootstrap.min.css', false, '1.0.0' );
-        wp_enqueue_style( 'custom', get_template_directory_uri() . '/css/custom.css', false, '1.0.0' );
-        wp_enqueue_style( 'responsive', get_template_directory_uri() . '/css/responsive.css', false, '1.0.0' );       
+        foreach ( $css_files as $css_file ) {
+            $file_path = get_template_directory() . '/css/' . $css_file . '.css';
+            $version   = get_file_version( $file_path );
+
+            wp_enqueue_style( $css_file, get_template_directory_uri() . '/css/' . $css_file . '.css', false, $version );
+        }
     }
 
     add_action( 'wp_enqueue_scripts', 'honeyshop_assets' );  
