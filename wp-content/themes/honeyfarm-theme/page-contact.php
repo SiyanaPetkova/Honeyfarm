@@ -1,21 +1,5 @@
 <?php get_header(); ?>
 
-<!-- Start All Title Box -->
-<div class="all-title-box">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h2><?php the_title(); ?></h2>
-                <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Начало</a></li>
-                    <li class="breadcrumb-item active"><?php the_title(); ?></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End All Title Box -->
-
 <!-- Start Contact Us  -->
 <div class="contact-box-main">
 

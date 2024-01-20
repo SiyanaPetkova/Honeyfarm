@@ -4,22 +4,21 @@
     <div id="slides-shop" class="cover-slides">
         <ul class="slides-container">
             <?php
-            // Get the slide images dynamically
-            $theme_directory_uri = esc_url(get_template_directory_uri());
+            $theme_directory_uri = esc_url( get_template_directory_uri() );
             $slide_images = array(
                 $theme_directory_uri . '/images/banner-01.jpg',
                 $theme_directory_uri . '/images/banner-02.jpg',
                 $theme_directory_uri . '/images/banner-03.jpg'
             );
 
-            foreach ($slide_images as $image_url) :
+            foreach ( $slide_images as $image_url ) :
             ?>
                 <li class="text-center">
-                    <img src="<?php echo esc_url($image_url); ?>" alt="">
+                    <img src="<?php echo esc_url( $image_url ); ?>" alt="">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h1 class="m-b-20"><strong><?php the_title(); ?></strong></h1>
+                                <h1 class="m-b-20"><strong><?php echo esc_html( get_bloginfo('name') ); ?></strong></h1>                                
                             </div>
                         </div>
                     </div>

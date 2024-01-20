@@ -56,6 +56,24 @@
             <!-- End Side Menu -->
         </nav>
         <!-- End Navigation -->
+
+        <!-- Start All Title Box -->
+        <?php if (!is_home()) : ?>
+            <div class="all-title-box">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h2><?php the_title(); ?></h2>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Начало</a></li>
+                                <li class="breadcrumb-item active"><?php the_title(); ?></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+        <!-- End All Title Box -->
     </header>
     <!-- End Main Top -->
 </body>
