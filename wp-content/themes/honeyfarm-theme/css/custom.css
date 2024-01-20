@@ -42,3 +42,14 @@
 .fa-chevron-right {
     margin-right: 5px;
 }
+
+.custom-card {
+    width: 200px; /* Set the desired width for the cards */
+}
+
+.custom-card .card-img-top {
+    width: 100%; /* Make the thumbnail fill the entire width of the card */
+    height: 150px; /* Set the desired height for the thumbnails */
+    object-fit: cover; /* Maintain aspect ratio while covering the entire space */
+    border-radius: 8px 8px 0 0; /* Add rounded corners to the top of the thumbnail */
+}
