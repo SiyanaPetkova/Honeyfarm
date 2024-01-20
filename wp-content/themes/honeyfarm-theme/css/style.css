@@ -1575,10 +1575,15 @@
 }
 
 .about-box-main a{
-	color: #ffffff;
+	color: black;
 	font-size: 18px;
 	font-weight: 700;
 	border: none;
+    transition: color 0.3s ease;
+}
+
+.about-box-main a:hover{
+	color: #ffd700;
 }
 
 .about-box-main a.btn{

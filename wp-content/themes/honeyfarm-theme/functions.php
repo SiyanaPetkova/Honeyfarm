@@ -183,4 +183,19 @@
     
     add_action( 'customize_register', 'custom_theme_customize_register' );
 
-    
+    /**
+     * Register widget for custom sidebar
+     */
+     // 
+    function register_custom_sidebar() {
+        register_sidebar( array(
+            'name'          => __( 'recent-posts'),
+            'id'            => 'recent-posts',
+            'description'   => __( 'Widgets in this area will display recent posts.', 'honeyfarm' ),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h2 class="widgettitle">',
+            'after_title'   => '</h2>',
+        ) );
+    }
+    add_action( 'widgets_init', 'register_custom_sidebar' );

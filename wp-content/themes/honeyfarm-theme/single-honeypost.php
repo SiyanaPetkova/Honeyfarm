@@ -8,13 +8,19 @@
 
                 <div class="container">
                     <div class="row">                      
-                        <div class="col-lg-12">
+                        <div class="col-lg-9">
                             <h2 class="noo-sh-title-top"><?php the_title(); ?></h2>
                             <p><?php the_content(); ?></p>
                         </div>
+                        <div class="col-lg-3">                            
+                            <?php
+                                if ( is_active_sidebar( 'recent-posts' ) ) {
+                                    get_sidebar( 'recent-posts' );
+                                }
+                            ?>
+                        </div>
                     </div>          
                  </div>
- 
             <?php endwhile; else : ?>
 
         <?php endif; ?>
