@@ -10,15 +10,15 @@ get_header(); ?>
 
         <?php
         $args = array(
-            'post_type' => 'honeypost', // Replace with your custom post type name
-            'posts_per_page' => -1, // Display all posts
+            'post_type' => 'honeypost',
+            'posts_per_page' => 2,            
+            'paged'          => get_query_var( 'paged' )
         );
 
         $query = new WP_Query($args);
 
         if ($query->have_posts()) :
             while ($query->have_posts()) : $query->the_post();
-                // Your loop content goes here
                 ?>
                 <div class="container">
                     <div class="row">
@@ -28,13 +28,23 @@ get_header(); ?>
                         </div>
                     </div>
                 </div>
-            <?php
-            endwhile;
-            wp_reset_postdata();
-        else :
-            ?>
-            <p>No honeyposts found.</p>
+            <?php endwhile; ?>   
+
+            <div class="pagination-container">
+                <?php
+                $GLOBALS['wp_query'] = $query;
+                the_posts_pagination( array (
+                    'mid_size'  => 2, 
+                    'prev_text' => '<i class="fa fa-chevron-left"></i> ' . __( 'Предишна', 'honeyfarm' ),
+                    'next_text' => __( 'Следваща', 'honeyfarm' ) . ' <i class="fa fa-chevron-right"></i>',
+                    'screen_reader_text' => __(' '),
+                ));
+                ?>
+            </div>  
+
         <?php endif; ?>
+
+        <?php wp_reset_postdata(); ?>
 
     </main>
 </div>

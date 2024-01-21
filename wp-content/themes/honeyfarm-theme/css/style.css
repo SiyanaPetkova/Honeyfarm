@@ -687,7 +687,7 @@
      margin-top: 40px;
      background: #ffffff;
 }
- .main-header.fixed-menu {
+ /* .main-header.fixed-menu {
      position: fixed;
      visibility: hidden;
      left: 0px;
@@ -724,7 +724,7 @@
      -op-animation-iteration-count: 1;
      -webkit-animation-iteration-count: 1;
      animation-iteration-count: 1;
-}
+} */
  .main-header.fixed-menu {
      padding: 0px;
      box-shadow: 0 0 8px 0 rgba(0,0,0,.12);

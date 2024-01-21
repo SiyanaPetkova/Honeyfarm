@@ -14,7 +14,8 @@ get_header(); ?>
                 <?php
                 $args = array(
                     'post_type'      => 'post',
-                    'posts_per_page' => -1,
+                    'posts_per_page' => 5,
+                    'paged'          => get_query_var( 'paged' )
                 );
 
                 $query = new WP_Query($args);
@@ -35,17 +36,29 @@ get_header(); ?>
                                 </div>
                             </div>
                         </div>
-                    <?php
-                    endwhile;
-                    wp_reset_postdata();
-                else :
-                    ?>
-                    <p>No posts found.</p>
+                        <?php endwhile; ?>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 pagination-container">
+                        <?php
+                        $GLOBALS['wp_query'] = $query;
+                        the_posts_pagination( array (
+                                'mid_size'  => 2,
+                                'prev_text' => '<i class="fa fa-chevron-left"></i> ' . __('Предишна', 'honeyfarm'),
+                                'next_text' => __('Следваща', 'honeyfarm') . ' <i class="fa fa-chevron-right"></i>',
+                                'screen_reader_text' => __(' '),
+                            ));
+                            ?>
+                        </div>
+                    </div>
+                </div>
+
+                <?php wp_reset_postdata(); ?>
+
                 <?php endif; ?>
-
-            </div>
-        </div>
-
     </main>
 </div>
 
