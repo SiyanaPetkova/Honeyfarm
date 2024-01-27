@@ -2,16 +2,16 @@
 
 function honeyposts_cpt(){
     $labels = array(
-		'name'                  => _x( 'HoneyPosts', 'Post type general name', 'textdomain' ),
-		'singular_name'         => _x( 'HoneyPost', 'Post type singular name', 'textdomain' ),
-		'menu_name'             => _x( 'HoneyPosts', 'Admin Menu text', 'textdomain' ),
-		'name_admin_bar'        => _x( 'HoneyPost', 'Add New on Toolbar', 'textdomain' ),
-		'add_new'               => __( 'Add New', 'textdomain' ),
-		'add_new_item'          => __( 'Add New HoneyPost', 'textdomain' ),
-		'new_item'              => __( 'New HoneyPost', 'textdomain' ),
-		'edit_item'             => __( 'Edit HoneyPost', 'textdomain' ),
-		'view_item'             => __( 'View HoneyPost', 'textdomain' ),
-		'all_items'             => __( 'All HoneyPosts', 'textdomain' ),	
+		'name'                  => _x( 'HoneyPosts', 'Post type general name', 'honeyfarm' ),
+		'singular_name'         => _x( 'HoneyPost', 'Post type singular name', 'honeyfarm' ),
+		'menu_name'             => _x( 'HoneyPosts', 'Admin Menu text', 'honeyfarm' ),
+		'name_admin_bar'        => _x( 'HoneyPost', 'Add New on Toolbar', 'honeyfarm' ),
+		'add_new'               => __( 'Add New', 'honeyfarm' ),
+		'add_new_item'          => __( 'Add New HoneyPost', 'honeyfarm' ),
+		'new_item'              => __( 'New HoneyPost', 'honeyfarm' ),
+		'edit_item'             => __( 'Edit HoneyPost', 'honeyfarm' ),
+		'view_item'             => __( 'View HoneyPost', 'honeyfarm' ),
+		'all_items'             => __( 'All HoneyPosts', 'honeyfarm' ),	
 	);
 
 	$args = array(
@@ -39,6 +39,28 @@ function honeyposts_cpt(){
 }
 
 add_action( 'init', 'honeyposts_cpt' );
+
+/**
+	 * Register our Category taxonomy for our Robots CPT
+	 *
+	 * @return void
+	 */
+function honeypost_category_taxonomy () {
+	$labels = array(
+		'name' => 'Categories',
+		'singular_name' => 'Category',
+	);
+
+	$args = array(
+		'labels'       => $labels,
+		'show_in_rest' => true,
+		'hierarchical' => true,
+	);
+
+	register_taxonomy( 'honeypost-category', 'honeypost', $args );
+}
+
+add_action('init', 'honeypost_category_taxonomy');
 
 /**
  * Register meta box(es) and calback function for them.
