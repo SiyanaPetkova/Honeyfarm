@@ -15,8 +15,14 @@ jQuery(document).ready(function ($) {
             success: function (res) {
                 if (res.trim() !== '') {
                     $('.gallery').append(res);
+
+                    let maxPages = parseInt($('.max-pages').data('max-pages'), 10);
+
+                    if (currentPage >= maxPages) {
+                        $('#load-more').hide();
+                    }
                 } else {
-                    $('#load-more').text('No more images').prop('disabled', true);
+                    $('#load-more').hide();                    
                 }
             },
             error: function (xhr, textStatus, errorThrown) {

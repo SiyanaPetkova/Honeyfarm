@@ -1,7 +1,10 @@
 <?php 
 
-// Register and enqueue the gallery styles
-
+/**
+    * Register and enqueue the gallery styles and scripts.
+    * 
+    */
+// 
 function custom_gallery_enqueue_styles() {
     wp_enqueue_style( 'hf-gallery-style', plugin_dir_url(__FILE__) . 'assets/css/hf-gallery-style.css' );
 
@@ -12,7 +15,11 @@ function custom_gallery_enqueue_styles() {
 
 add_action( 'wp_enqueue_scripts', 'custom_gallery_enqueue_styles' );
 
-// Register the shortcode
+/**
+    * Register the shortcode for the gallery.
+    * 
+    */
+// 
 function custom_gallery_shortcode( $atts ) {
     ob_start();
 
@@ -33,17 +40,20 @@ function custom_gallery_shortcode( $atts ) {
 
     $query_images = new WP_Query( $query_images_args );
 
-    echo '<div class="gallery">';
-        if( $query_images->have_posts()) : 
-            while( $query_images->have_posts() ) : 
-                $query_images->the_post(); ?>
-            
-                <?php echo $images = wp_get_attachment_image( $query_images->ID, 'thumbnail' ); ?>            
+    error_log('Query Result: ' . print_r($query_images, true));
 
-            <?php endwhile; ?>
-        <?php else : ?>
-            <p>Все още няма снимки</p>
-        <?php endif;
+    echo '<div class="gallery">';
+
+    if( $query_images->have_posts()) : 
+        while( $query_images->have_posts() ) : 
+            $query_images->the_post(); ?>
+            
+            <?php echo $images = wp_get_attachment_image( $query_images->ID, 'thumbnail' ); ?>            
+
+        <?php endwhile; ?>
+    <?php else : ?>
+        <p>Все още няма снимки</p>
+    <?php endif;
 
     echo '</div>';
 
@@ -57,10 +67,14 @@ function custom_gallery_shortcode( $atts ) {
 }
 
 add_shortcode( 'custom_gallery', 'custom_gallery_shortcode' );
-function gallery_load_more() {
-    // Log entry point
-    error_log('Gallery Load More function started.');
 
+/**
+    * Callback function for the ajax request.
+    * 
+    */
+// 
+function gallery_load_more() {
+  
     $query_images_args = array(
         'post_type'      => 'attachment',
         'post_mime_type' => 'image,video',
@@ -70,34 +84,28 @@ function gallery_load_more() {
         'paged' => $_POST['paged'],
     );
 
-   ;
-
     $query_images = new WP_Query( $query_images_args );
-    
-    echo '<div class="gallery">';
-        if ( $query_images->have_posts() ) :
-            while ( $query_images->have_posts() ) :
-                $query_images->the_post(); ?>
+
+    $max_pages = $query_images->max_num_pages;
+
+    if ( $query_images->have_posts() ) :
+        while ( $query_images->have_posts() ) :
+            $query_images->the_post(); ?>
                 
-                    <?php
-                    $image_id = get_the_ID();
-                    // Log attachment ID
-                    error_log('Attachment ID: ' . $image_id);
+                <?php
+                $image_id = get_the_ID();              
+                $images = wp_get_attachment_image($image_id, 'thumbnail');               
+                echo $images;
+                ?>    
 
-                    $images = wp_get_attachment_image($image_id, 'thumbnail');
-                    // Log image data
-                    error_log('Image Data: ' . print_r($images, true));
+        <?php endwhile; ?>
 
-                    echo $images;
-                    ?>               
+    <?php else : ?>
+        <p>Все още няма снимки</p>
+    <?php endif;
 
-            <?php endwhile; ?>
-        <?php else : ?>
-            <p>Все още няма снимки</p>
-        <?php endif;
-
-    echo '</div>';
-    
+    echo '<div class="max-pages" data-max-pages="' . esc_attr($max_pages) . '"></div>';
+   
     exit;
 }
 
