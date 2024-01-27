@@ -24,7 +24,7 @@
             'popper.min',
             'bootstrap.min',
             'jquery.superslides.min',
-            'jquery-ui.min',
+            'jquery-ui',
             'bootstrap-select',
             'inewsticker',
             'bootsnav',

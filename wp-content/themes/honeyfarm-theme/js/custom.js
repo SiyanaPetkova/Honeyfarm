@@ -184,10 +184,4 @@ jQuery(document).ready(function($) {
     $("#amount").val("$" + $("#slider-range").slider("values", 0) +
         " - $" + $("#slider-range").slider("values", 1));
 
-    /* ..............................................
-       NiceScroll
-       ................................................. */
-    $(".brand-box").niceScroll({
-        cursorcolor: "#9b9b9c",
-    });
 });
