@@ -55,3 +55,58 @@
     border-radius: 8px 8px 0 0; 
 }
 
+.container-honeypost {
+    margin: 20px; 
+}
+
+.post-thumbnail {
+    max-width: 100%; /* Make sure the image doesn't exceed its container */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Adjust the margin below the image as needed */
+}
+
+.read-more-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #ffd700; 
+    color: #fff; 
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.our-products-container {
+    margin: 2em; 
+}
+
+.custom-card {
+    height: 100%;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.card-title,
+.card-text {
+    margin-bottom: 1rem; 
+    text-align: center;
+}
+
+.btn {
+    align-self: center; 
+}
+
+.main-instagram {
+    max-height: 400px; /* Set maximum height as needed */
+    overflow: hidden; /* Hide any content that overflows the container */
+}
+
+.custom-image {
+    width: auto; /* Ensure aspect ratio is maintained */
+    max-height: 100%; /* Set maximum height to 100% of the container height */
+    object-fit: cover; /* Crop the image to cover the container */
+    object-position: center center;
+}

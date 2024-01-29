@@ -1,5 +1,7 @@
 <?php 
 
+add_image_size('custom-thumbnail-size', 300, 200, true);
+
 /**
  * This function get all paths to the css and js files.
  * 

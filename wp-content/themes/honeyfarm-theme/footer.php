@@ -5,7 +5,7 @@
             <div class="row">
             <div class="col-lg-6 col-md-12 col-sm-12">
                 <div class="footer-top-box">
-                    <h3>Работно време</h3>
+                    <h3>Working time</h3>
                     <ul class="list-time">
                         <?php
                         $days_of_week = array( 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' );
