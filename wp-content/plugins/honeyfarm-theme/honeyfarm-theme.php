@@ -13,3 +13,4 @@ Domain Path:  /languages
 */
 
 include 'includes/cpt-honeyposts.php';
+include 'includes/functions.php';
