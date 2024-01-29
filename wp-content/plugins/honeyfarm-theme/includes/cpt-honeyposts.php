@@ -1,5 +1,8 @@
 <?php
 
+/**
+* Register custom post type honeypost
+*/
 function honeyposts_cpt(){
     $labels = array(
 		'name'                  => _x( 'HoneyPosts', 'Post type general name', 'honeyfarm' ),
@@ -41,10 +44,8 @@ function honeyposts_cpt(){
 add_action( 'init', 'honeyposts_cpt' );
 
 /**
-	 * Register our Category taxonomy for our Robots CPT
-	 *
-	 * @return void
-	 */
+* Register our Category taxonomy for honeypost CPT
+*/
 function honeypost_category_taxonomy () {
 	$labels = array(
 		'name' => 'Categories',

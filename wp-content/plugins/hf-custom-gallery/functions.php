@@ -1,10 +1,8 @@
 <?php 
 
 /**
-    * Register and enqueue the gallery styles and scripts.
-    * 
-    */
-// 
+* Register and enqueue the gallery styles and scripts.
+*/
 function custom_gallery_enqueue_styles() {
     wp_enqueue_style( 'hf-gallery-style', plugin_dir_url(__FILE__) . 'assets/css/hf-gallery-style.css' );
 
@@ -16,10 +14,8 @@ function custom_gallery_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'custom_gallery_enqueue_styles' );
 
 /**
-    * Register the shortcode for the gallery.
-    * 
-    */
-// 
+* Register the shortcode for the gallery.
+*/
 function custom_gallery_shortcode( $atts ) {
     ob_start();
 
@@ -40,7 +36,7 @@ function custom_gallery_shortcode( $atts ) {
 
     $query_images = new WP_Query( $query_images_args );
 
-    error_log('Query Result: ' . print_r($query_images, true));
+    error_log( 'Query Result: ' . print_r( $query_images, true ) );
 
     echo '<div class="gallery">';
 
@@ -52,7 +48,7 @@ function custom_gallery_shortcode( $atts ) {
 
         <?php endwhile; ?>
     <?php else : ?>
-        <p>Все още няма снимки</p>
+        <p>There are no images yet</p>
     <?php endif;
 
     echo '</div>';
@@ -69,10 +65,8 @@ function custom_gallery_shortcode( $atts ) {
 add_shortcode( 'custom_gallery', 'custom_gallery_shortcode' );
 
 /**
-    * Callback function for the ajax request.
-    * 
-    */
-// 
+* Callback function for the ajax request.
+*/
 function gallery_load_more() {
   
     $query_images_args = array(
@@ -94,17 +88,17 @@ function gallery_load_more() {
                 
                 <?php
                 $image_id = get_the_ID();              
-                $images = wp_get_attachment_image($image_id, 'thumbnail');               
+                $images = wp_get_attachment_image( $image_id, 'thumbnail' );               
                 echo $images;
                 ?>    
 
         <?php endwhile; ?>
 
     <?php else : ?>
-        <p>Все още няма снимки</p>
+        <p>There are no images yet</p>
     <?php endif;
 
-    echo '<div class="max-pages" data-max-pages="' . esc_attr($max_pages) . '"></div>';
+    echo '<div class="max-pages" data-max-pages="' . esc_attr( $max_pages ) . '"></div>';
    
     exit;
 }

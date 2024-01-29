@@ -15,7 +15,7 @@
                                     $display_date = get_field( 'show_publishdate' ); 
 
                                     if ( $display_date ) {
-                                        echo 'Дата: ' . get_the_date();
+                                        echo 'Date: ' . get_the_date();
                                     }
                                 ?>
                             </div>

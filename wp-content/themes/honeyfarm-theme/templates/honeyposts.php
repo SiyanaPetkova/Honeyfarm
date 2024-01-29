@@ -2,7 +2,6 @@
 /*
 Template Name: Honeyposts Page
 */
-
 get_header(); ?>
 
 <div id="primary" class="content-area">
@@ -17,8 +16,8 @@ get_header(); ?>
 
         $query = new WP_Query($args);
 
-        if ($query->have_posts()) :
-            while ($query->have_posts()) : $query->the_post();
+        if ( $query->have_posts() ) :
+            while ( $query->have_posts() ) : $query->the_post();
                 ?>
                 <div class="container">
                     <div class="row">
@@ -35,8 +34,8 @@ get_header(); ?>
                 $GLOBALS['wp_query'] = $query;
                 the_posts_pagination( array (
                     'mid_size'  => 2, 
-                    'prev_text' => '<i class="fa fa-chevron-left"></i> ' . __( 'Предишна', 'honeyfarm' ),
-                    'next_text' => __( 'Следваща', 'honeyfarm' ) . ' <i class="fa fa-chevron-right"></i>',
+                    'prev_text' => '<i class="fa fa-chevron-left"></i> ' . __( 'Previous', 'honeyfarm' ),
+                    'next_text' => __( 'Next', 'honeyfarm' ) . ' <i class="fa fa-chevron-right"></i>',
                     'screen_reader_text' => __(' '),
                 ));
                 ?>

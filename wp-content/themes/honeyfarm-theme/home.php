@@ -90,7 +90,7 @@
                                     preg_match('/<img[^>]+>/i', $post_content, $matches);
 
                                     if (!empty($matches[0])) {
-                                        echo $matches[0]; //
+                                        echo $matches[0]; 
                                     } else {
                                         // If no images are attached or found, use a default image                                      
                                         $default_image = '<img class="img-fluid" src="' . 'C:/xampp/htdocs/honeyfarm/wp-content/themes/honeyfarm-theme/images/default-image.jpg' . '" alt="Default Image">';

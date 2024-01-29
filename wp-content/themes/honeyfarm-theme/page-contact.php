@@ -15,10 +15,10 @@
                         <p><?php the_content(); ?></p>
                         <ul>
                             <li>
-                                <p><i class="fas fa-map-marker-alt"></i>Адрес: <?php echo get_theme_mod( 'address_setting' ); ?></p>
+                                <p><i class="fas fa-map-marker-alt"></i>Address: <?php echo get_theme_mod( 'address_setting' ); ?></p>
                             </li>
                             <li>
-                                <p><i class="fas fa-phone-square"></i>Телефон: <a href="tel:<?php echo get_theme_mod( 'phone_setting' ); ?>"><?php echo get_theme_mod('phone_setting'); ?></a></p>
+                                <p><i class="fas fa-phone-square"></i>Phone number: <a href="tel:<?php echo get_theme_mod( 'phone_setting' ); ?>"><?php echo get_theme_mod('phone_setting'); ?></a></p>
                             </li>
                             <li>
                                 <p><i class="fas fa-envelope"></i>Email: <a href="mailto:<?php echo get_theme_mod( 'email_setting' ); ?>"><?php echo get_theme_mod('email_setting'); ?></a></p>
