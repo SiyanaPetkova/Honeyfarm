@@ -14,37 +14,50 @@ get_header(); ?>
             'paged'          => get_query_var('paged'),
         );
 
-        $query = new WP_Query( $args );
+        $query = new WP_Query($args);
 
         if ( $query->have_posts() ) :
             while ( $query->have_posts() ) : $query->the_post();
-                ?>
+
+                $attachments = get_attached_media( 'image', get_the_ID() );
+
+                if ( $attachments ) {
+                    $first_attachment = reset( $attachments) ;
+                    $image_url = wp_get_attachment_url ($first_attachment->ID );
+                } else {
+                    $image_url = false;
+                }
+        ?>
                 <div class="container-honeypost">
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-9">
                             <h2 class="noo-sh-title-top"><?php the_title(); ?></h2>
-                            
-                            <?php
-                            if (has_post_thumbnail() ) {
-                                the_post_thumbnail( 'custom-thumbnail-size' );
-                            }
-                            ?>
 
-                            <p><?php echo wp_trim_words(get_the_content(), 20); ?></p>
+                            <?php 
+                            if ( $image_url ) : ?>
+                                <div class="featured-image-container">
+                                    <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>">
+                                </div>
+                            <?php endif; ?>
+
+                            <p><?php echo wp_trim_words( get_the_content(), 50 ); ?></p>
+
                             <a href="<?php the_permalink(); ?>" class="read-more-button">Read More</a>
                         </div>
                     </div>
                 </div>
-            <?php endwhile; ?>
+        <?php
+            endwhile;
+        ?>
 
             <div class="pagination-container">
                 <?php
                 $GLOBALS['wp_query'] = $query;
-                the_posts_pagination(array(
+                the_posts_pagination( array (
                     'mid_size'           => 2,
                     'prev_text'          => '<i class="fa fa-chevron-left"></i> ' . __( 'Previous', 'honeyfarm' ),
                     'next_text'          => __( 'Next', 'honeyfarm' ) . ' <i class="fa fa-chevron-right"></i>',
-                    'screen_reader_text' => __( ' ' ),
+                    'screen_reader_text' => __( ' '),
                 ));
                 ?>
             </div>

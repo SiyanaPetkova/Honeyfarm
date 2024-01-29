@@ -75,26 +75,26 @@ function honeypost_register_meta_boxes() {
 add_action( 'add_meta_boxes', 'honeypost_register_meta_boxes' );
 
 
-function honeyposts_featured_metabox_callback( $post_id ) {
-	$checked = get_post_meta( $post_id->ID, 'is_featured', true);
-
-  	?> 
-  	<div>	
+function honeyposts_featured_metabox_callback( $post ) {
+	$checked = get_post_meta( $post->ID, 'is_featured', true );
+	?>
+	<div>
 		<label for='is-featured'>Is featured?</label>
-		<input id='is-featured' name='isfeatured' type='checkbox' value='1' <?php checked( $checked, 1, true ); ?>/>
-	</div> <?php
+		<input id='is-featured' name='is_featured' type='checkbox' value='1' <?php checked( $checked, '1' ); ?>/>
+	</div>
+	<?php
 }
 
-function honeyposts_meta_save( $post_id){
-	if( empty( $post_id ) ) {
+function honeyposts_meta_save($post_id) {
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE) {
 		return;
 	}
 
-	$featured = '';
-
-	if( isset ( $_POST['isfeatured'] )) {
-		$featured = esc_attr( $_POST['isfeatured'] );
+	if ( !current_user_can('edit_post', $post_id ) ) {
+		return;
 	}
+
+	$featured = isset( $_POST['is_featured'] ) ? sanitize_text_field( $_POST['is_featured'] ) : '';
 	update_post_meta( $post_id, 'is_featured', $featured );
 }
 

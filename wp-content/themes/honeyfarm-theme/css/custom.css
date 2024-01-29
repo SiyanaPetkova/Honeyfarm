@@ -60,9 +60,9 @@
 }
 
 .post-thumbnail {
-    max-width: 100%; /* Make sure the image doesn't exceed its container */
-    height: auto; /* Maintain aspect ratio */
-    margin-bottom: 10px; /* Adjust the margin below the image as needed */
+    max-width: 100%; 
+    height: auto;
+    margin-bottom: 10px; 
 }
 
 .read-more-button {
@@ -100,13 +100,42 @@
 }
 
 .main-instagram {
-    max-height: 400px; /* Set maximum height as needed */
-    overflow: hidden; /* Hide any content that overflows the container */
+    max-height: 400px;
+    overflow: hidden; 
 }
 
 .custom-image {
-    width: auto; /* Ensure aspect ratio is maintained */
-    max-height: 100%; /* Set maximum height to 100% of the container height */
-    object-fit: cover; /* Crop the image to cover the container */
+    width: auto; 
+    max-height: 100%; 
+    object-fit: cover;
     object-position: center center;
+}
+
+.container-honeypost {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 2rem; 
+}
+
+.featured-image-container {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    display: block;
+    margin: 0 auto;
+}
+
+.featured-image-container img {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    display: block;
+    margin: 0 auto;
+}
+
+.read-more-button {
+    margin-top: 5px; 
+    margin-bottom: 25px;
 }

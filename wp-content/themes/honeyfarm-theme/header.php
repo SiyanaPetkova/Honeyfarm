@@ -65,7 +65,7 @@
                         <div class="col-lg-12">
                             <h2><?php the_title(); ?></h2>
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Начало</a></li>
+                                <li class="breadcrumb-item"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a></li>
                                 <li class="breadcrumb-item active"><?php the_title(); ?></li>
                             </ul>
                         </div>
