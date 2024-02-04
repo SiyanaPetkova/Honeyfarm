@@ -76,5 +76,5 @@
         <!-- End All Title Box -->
     </header>
     <!-- End Main Top -->
-</body>
+</body <?php body_class()?>>
 </html>

@@ -31,7 +31,7 @@ function custom_gallery_shortcode( $atts ) {
         'post_status'    => 'inherit',
         'orderby'        => 'post_date',
         'posts_per_page' =>  4,
-        'paged'          => $paged
+        'paged'          =>  $paged
     );
 
     $query_images = new WP_Query( $query_images_args );
@@ -40,11 +40,11 @@ function custom_gallery_shortcode( $atts ) {
 
     echo '<div class="gallery">';
 
-    if( $query_images->have_posts()) : 
+    if( $query_images->have_posts() ) : 
         while( $query_images->have_posts() ) : 
             $query_images->the_post(); ?>
             
-            <?php echo $images = wp_get_attachment_image( $query_images->ID, 'thumbnail' ); ?>            
+            <?php echo wp_get_attachment_image( $query_images->ID, 'thumbnail' ); ?>            
 
         <?php endwhile; ?>
     <?php else : ?>
@@ -75,7 +75,7 @@ function gallery_load_more() {
         'post_status'    => 'inherit',
         'orderby'        => 'post_date',
         'posts_per_page' =>  4,
-        'paged' => $_POST['paged'],
+        'paged'          => $_POST['paged'],
     );
 
     $query_images = new WP_Query( $query_images_args );

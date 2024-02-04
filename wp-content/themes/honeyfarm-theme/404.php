@@ -4,8 +4,8 @@
     <div class="container">
         <div class="row">                      
             <div class="col-lg-12">
-                <h2 class="noo-sh-title-top">Може би се загуби?</h2>
-                <h3>404 - Страницата, която търсиш, не може да бъде намерена.</h3>
+                <h2 class="noo-sh-title-top">May be you are lost?</h2>
+                <h3>404 - Page not found.</h3>
 
                 <?php
                     $image_url = get_template_directory_uri() . '/images/not-found-404.gif';
