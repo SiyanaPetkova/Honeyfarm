@@ -26,5 +26,6 @@ This is custom wordpress theme and plugins. It includes:
 - Shortcode to add the gallery to the page.
 - Dynamicly every new image that is added to the page or post is shown at the gallery.
 - AJAX functionality for "Load more" button to show more photos.
+- Options Page where the user can choose how many images to show the gallery and the load more button after that.
 
 All images in the theme are from personal collection! 

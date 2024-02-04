@@ -203,6 +203,23 @@
 	.offer-box-products{
 		margin-bottom: 30px;
 	}
+
+    #slides-shop {
+        width: 100%;
+        max-width: 1200px; /* Adjust the max-width as needed */
+        margin: 0 auto; /* Center the slider */
+    }
+
+    .slides-container li {
+        width: 100%;
+        text-align: center;
+        position: relative; /* Relative positioning for absolute child elements */
+    }
+
+    .slides-container img {
+        width: 100%;
+        height: auto;
+    }
 }
  @media only screen and (min-width: 280px) and (max-width: 599px) {
      .navbar-light .navbar-toggler{
@@ -242,11 +259,11 @@
          float: none;
          text-align: center;
     }
-.     .filter-button-group button{
+/* .     .filter-button-group button{
          font-size: 14px;
          padding: 5px 18px;
 		 margin-bottom: 3px;
-    }
+    } */
      .title-blog h3{
          font-size: 16px;
     }

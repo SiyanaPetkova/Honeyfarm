@@ -1,5 +1,7 @@
 <?php 
 
+require_once 'options-page.php';
+
 /**
 * Register and enqueue the gallery styles and scripts.
 */
@@ -22,6 +24,8 @@ function custom_gallery_shortcode( $atts ) {
     if ( !isset( $GLOBALS['custom_gallery_shortcode'] ) ) {
         $GLOBALS['custom_gallery_shortcode'] = 1;
     }
+
+    $images_per_page = get_option('gallery_images_per_page', 4);
     
     $paged = isset( $_POST['paged'] ) ? $_POST['paged'] : 1;
          
@@ -30,7 +34,7 @@ function custom_gallery_shortcode( $atts ) {
         'post_mime_type' => 'image',
         'post_status'    => 'inherit',
         'orderby'        => 'post_date',
-        'posts_per_page' =>  4,
+        'posts_per_page' => $images_per_page,
         'paged'          =>  $paged
     );
 
@@ -68,13 +72,15 @@ add_shortcode( 'custom_gallery', 'custom_gallery_shortcode' );
 * Callback function for the ajax request.
 */
 function gallery_load_more() {
+
+    $images_per_page = get_option('gallery_images_per_page', 4);
   
     $query_images_args = array(
         'post_type'      => 'attachment',
         'post_mime_type' => 'image,video',
         'post_status'    => 'inherit',
         'orderby'        => 'post_date',
-        'posts_per_page' =>  4,
+        'posts_per_page' => $images_per_page,
         'paged'          => $_POST['paged'],
     );
 
