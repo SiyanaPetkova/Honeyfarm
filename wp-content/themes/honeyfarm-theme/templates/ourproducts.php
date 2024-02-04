@@ -24,8 +24,14 @@ get_header(); ?>
                         ?>
                         <div class="col-md-3 mb-4">
                             <div class="card custom-card">
-                                <?php if ( has_post_thumbnail() ) : ?>
+                                <?php
+                                if ( has_post_thumbnail() ) :
+                                    ?>
                                     <img class="card-img-top" src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>">
+                                <?php else :
+                                    $default_image_url = get_template_directory_uri() . '/images/default-image.jpg';
+                                    ?>
+                                    <img class="card-img-top" src="<?php echo esc_url( $default_image_url ); ?>" alt="<?php the_title_attribute(); ?>">
                                 <?php endif; ?>
 
                                 <div class="card-body">

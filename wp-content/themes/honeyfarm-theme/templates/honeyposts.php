@@ -25,7 +25,7 @@ get_header(); ?>
                     $first_attachment = reset( $attachments) ;
                     $image_url = wp_get_attachment_url ($first_attachment->ID );
                 } else {
-                    $image_url = false;
+                    $image_url = get_template_directory_uri() . '/images/default-image.jpg';
                 }
         ?>
                 <div class="container-honeypost">
