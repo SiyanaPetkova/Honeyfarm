@@ -2,6 +2,19 @@
 
     <div class="about-box-main">
 
+        <?php
+        // Get author's biographical info
+        $author_id = get_query_var('author');
+        $author_bio = get_the_author_meta('description', $author_id);
+
+        // Display author's biographical info
+        if ($author_bio) {
+            echo '<div class="author-bio-box">';
+            echo '<div class="author-bio">' . wpautop($author_bio) . '</div>';
+            echo '</div>';
+        }
+        ?>
+
         <?php if ( have_posts() ) : ?>
             
         <?php while ( have_posts() ) : the_post(); ?>
