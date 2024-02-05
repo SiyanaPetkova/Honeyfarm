@@ -3,6 +3,11 @@
 require_once 'options-page.php';
 
 /**
+* Add custom image size for better quality.
+*/
+add_image_size('custom_gallery_size', 400, 600, true);
+
+/**
 * Register and enqueue the gallery styles and scripts.
 */
 function custom_gallery_enqueue_styles() {
@@ -48,7 +53,7 @@ function custom_gallery_shortcode( $atts ) {
         while( $query_images->have_posts() ) : 
             $query_images->the_post(); ?>
             
-            <?php echo wp_get_attachment_image( $query_images->ID, 'thumbnail' ); ?>            
+            <?php echo wp_get_attachment_image( $query_images->ID, 'custom_gallery_size' ); ?>            
 
         <?php endwhile; ?>
     <?php else : ?>
@@ -94,7 +99,7 @@ function gallery_load_more() {
                 
                 <?php
                 $image_id = get_the_ID();              
-                $images = wp_get_attachment_image( $image_id, 'thumbnail' );               
+                $images = wp_get_attachment_image( $image_id, 'custom_gallery_size' );               
                 echo $images;
                 ?>    
 
