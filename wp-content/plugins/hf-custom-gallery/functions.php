@@ -25,7 +25,7 @@ function custom_gallery_shortcode( $atts ) {
         $GLOBALS['custom_gallery_shortcode'] = 1;
     }
 
-    $images_per_page = get_option('gallery_images_per_page', 4);
+    $images_per_page = get_option( 'gallery_images_per_page', 4 );
     
     $paged = isset( $_POST['paged'] ) ? $_POST['paged'] : 1;
          
@@ -73,7 +73,7 @@ add_shortcode( 'custom_gallery', 'custom_gallery_shortcode' );
 */
 function gallery_load_more() {
 
-    $images_per_page = get_option('gallery_images_per_page', 4);
+    $images_per_page = get_option( 'gallery_images_per_page', 4 );
   
     $query_images_args = array(
         'post_type'      => 'attachment',

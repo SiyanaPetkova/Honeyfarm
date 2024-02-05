@@ -2,6 +2,7 @@
 Wordpress custom theme and plugin
 
 This is custom wordpress theme and plugins. It includes:
+
 1. Custom theme that is using a free HTML/CSS/JS template. It dynamicly manipulates all the titles and the contents.
 - Separated pages for header that enqueues scripts and styles and footer.
 - Home page with slide, pulling information about the last three featured CPT and portrait oriented gallery images. 
@@ -13,6 +14,7 @@ This is custom wordpress theme and plugins. It includes:
 - The theme has wordpress menu that can be changed from the dashboard.
 - Custom 404 page.
 - There are options added to customizing the theme so the user can add name, addres, phone number, email and working hours for his buisness. This information is dynamicly shown in the footer of the page.
+- Contacts page where dynamicly gets all the data from the options in the customize theme menu.
 - A responsive theme that adjusts its layout based on the screen size and resolution.
 
 2. Custom plugin for the custom post type.
@@ -28,4 +30,4 @@ This is custom wordpress theme and plugins. It includes:
 - AJAX functionality for "Load more" button to show more photos.
 - Options Page where the user can choose how many images to show the gallery and the load more button after that.
 
-All images in the theme are from personal collection! 
+All images in the theme are part of personal collection! 

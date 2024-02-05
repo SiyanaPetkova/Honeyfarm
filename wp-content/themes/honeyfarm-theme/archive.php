@@ -13,9 +13,9 @@
         
                 <div class="pagination-container">
                     <?php
-                    the_posts_pagination(array(
+                    the_posts_pagination( array(
                         'mid_size'           => 2, 
-                        'prev_text'          => '<i class="fa fa-chevron-left"></i> ' . __('Previous', 'honeyfarm'),
+                        'prev_text'          => '<i class="fa fa-chevron-left"></i> ' . __( 'Previous', 'honeyfarm' ),
                         'next_text'          => __('Next', 'honeyfarm') . ' <i class="fa fa-chevron-right"></i>',
                         'screen_reader_text' => __(' '),
                     ));

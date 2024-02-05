@@ -1,7 +1,7 @@
 <?php 
 
 /**
-* This function manipulate the content of the custom post type honeypost with adding quotes to the content .
+* This function manipulate the content of the custom post type honeypost with adding randomly quotes to the content .
 */
 function custom_plugin_enqueue_styles() {
     if ( is_singular( 'honeypost' ) ) {
@@ -36,25 +36,6 @@ add_filter( 'the_content', 'custom_plugin_modify_honeypost_content' );
 function flush_rewrite_rules_custom() {
     flush_rewrite_rules();
 }
-add_action('after_switch_theme', 'flush_rewrite_rules_custom');
 
-/**
- * Add the top level menu page.
- */
-// function honeyposts_options_page() {
-// 	add_menu_page(
-// 		'Honeyposts Options',
-// 		'Honeyposts Options',
-// 		'manage_options',
-// 		'honeyposts-options',
-// 		'honeyposts_options_page_html'
-// 	);
-// }
-// /**
-//  * Register our softuni_options_page to the admin_menu action hook.
-//  */
-// add_action( 'admin_menu', 'honeyposts_options_page' );
+add_action( 'after_switch_theme', 'flush_rewrite_rules_custom' );
 
-// function honeyposts_options_page_html() {
-//     include 'includes/options-page.php';
-// }

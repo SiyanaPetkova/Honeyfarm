@@ -1,6 +1,6 @@
 <?php 
 
-add_image_size('custom-thumbnail-size', 300, 200, true);
+add_image_size( 'custom-thumbnail-size', 300, 200, true );
 
 /**
  * This function get all paths to the css and js files.
@@ -8,7 +8,7 @@ add_image_size('custom-thumbnail-size', 300, 200, true);
  */
 function honeyshop_assets( $hook ) {
     $args = array(
-        'in-footer' => true,
+        'in-footer'  => true,
         'Strategy'   => 'defer'
     );
 

@@ -1,16 +1,16 @@
 <?php
 if ( ! class_exists( 'HoneyPostType' ) ) :
 
-	/**
-	 * This is our simple HoneyPostType Class for our custom functionality
-	 */
-class HoneyPostType {
-
-	
+/**
+ * This is HoneyPostType Class for CPT functionality
+ */
+class HoneyPostType {	
 
 	public function __construct() {
-		// Register the CPT and taxonomies
+		// Register the CPT
 		add_action( 'init', array( $this, 'honeyposts_cpt' ) );
+
+		// Register the taxonomies
 		add_action( 'init', array( $this, 'honeyposts_category_taxonomy' ) );
 
 		// Register Metaboxes
@@ -19,7 +19,6 @@ class HoneyPostType {
 		// Save Actions
 		add_action( 'save_post', array( $this, 'honeyposts_meta_save' ) );
 	}
-
 
 	/**
 	* Register custom post type honeypost
