@@ -154,3 +154,10 @@
     max-width: 100%; 
     margin: 0 auto;
 }
+
+.slides-pagination a {
+    color: transparent !important;
+    text-indent: -9999px;
+    display: inline-block;
+    width: 20px; 
+}

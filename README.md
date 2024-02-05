@@ -1,6 +1,8 @@
 # Honeyfarm
 Wordpress custom theme and plugin
 
+The project is uploaded to server: https://kostov.honeyfarm.bg/
+
 This is custom wordpress theme and plugins. It includes:
 
 1. Custom theme that is using a free HTML/CSS/JS template. It dynamicly manipulates all the titles and the contents.
