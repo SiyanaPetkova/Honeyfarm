@@ -197,3 +197,13 @@ function register_custom_sidebar() {
     ) );
 }
 add_action( 'widgets_init', 'register_custom_sidebar' );
+
+/**
+ * Add support for featured images
+*/
+if ( ! function_exists( 'honeyfarm_theme_setup' ) ) {
+    function honeyfarm_theme_setup() {
+        add_theme_support( 'post-thumbnails' );
+    }
+    add_action( 'after_setup_theme', 'honeyfarm_theme_setup' );
+}

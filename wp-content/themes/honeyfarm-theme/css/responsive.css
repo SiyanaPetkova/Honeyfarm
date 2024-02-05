@@ -96,13 +96,21 @@
          margin: 0px;
     }
      .cover-slides h1{
-         font-size: 28px;
+         font-size: 20px;
     }
      .cover-slides p{
          font-size: 16px;
     }
      .cover-slides p a{
-         font-size: 18px;
+         font-size: 14px;
+    }
+    #slides-shop {
+        max-height: 300px; /* Set a maximum height for the slider */
+    }
+
+    #slides-shop img {
+        width: 100%; /* Make the images fill the width of the container */
+        height: auto; /* Maintain aspect ratio */
     }
      .offer-box li i{
          font-size: 18px;
@@ -203,23 +211,6 @@
 	.offer-box-products{
 		margin-bottom: 30px;
 	}
-
-    #slides-shop {
-        width: 100%;
-        max-width: 1200px; /* Adjust the max-width as needed */
-        margin: 0 auto; /* Center the slider */
-    }
-
-    .slides-container li {
-        width: 100%;
-        text-align: center;
-        position: relative; /* Relative positioning for absolute child elements */
-    }
-
-    .slides-container img {
-        width: 100%;
-        height: auto;
-    }
 }
  @media only screen and (min-width: 280px) and (max-width: 599px) {
      .navbar-light .navbar-toggler{
@@ -238,13 +229,24 @@
          margin: 0px;
     }
      .cover-slides h1{
-         font-size: 28px;
+         font-size: 20px;
     }
      .cover-slides p{
          font-size: 16px;
     }
      .cover-slides p a{
-         font-size: 18px;
+         font-size: 14px;
+    }
+    .slides-control {
+        width: 375.2px;
+    }
+    #slides-shop {
+        max-height: 300px; /* Set a maximum height for the slider */
+    }
+
+    #slides-shop img {
+        width: 100%; /* Make the images fill the width of the container */
+        height: auto; /* Maintain aspect ratio */
     }
      .offer-box li i{
          font-size: 11px;
